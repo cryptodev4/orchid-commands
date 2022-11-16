@@ -1,0 +1,102 @@
+{
+  "name": "orchid-commands",
+  "displayName": "Orchid Commands",
+  "description": "Orchid Commands for rapid development with Orchid Platform.",
+  "version": "1.0.0",
+  "icon": "orchid.png",
+  "repository": {
+    "url": "https://github.com/cryptodev4/orchid-commands.git"
+  },
+  "engines": {
+    "vscode": "^1.72.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:orchid-commands.action",
+    "onCommand:orchid-commands.chart",
+    "onCommand:orchid-commands.filter",
+    "onCommand:orchid-commands.listener",
+    "onCommand:orchid-commands.presenter",
+    "onCommand:orchid-commands.resource",
+    "onCommand:orchid-commands.rows",
+    "onCommand:orchid-commands.screen",
+    "onCommand:orchid-commands.selection",
+    "onCommand:orchid-commands.table",
+    "onCommand:orchid-commands.tab-menu"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+        {
+        "command": "orchid-commands.action",
+        "title": "Orchid Action"
+      },
+      {
+        "command": "orchid-commands.chart",
+        "title": "Orchid Chart"
+      },
+      {
+        "command": "orchid-commands.filter",
+        "title": "Orchid Filter"
+      },
+      {
+        "command": "orchid-commands.listener",
+        "title": "Orchid Listener"
+      },
+      {
+        "command": "orchid-commands.presenter",
+        "title": "Orchid Presenter"
+      },
+      {
+        "command": "orchid-commands.resource",
+        "title": "Orchid Resource"
+      },
+      {
+        "command": "orchid-commands.rows",
+        "title": "Orchid Rows"
+      },
+      {
+        "command": "orchid-commands.screen",
+        "title": "Orchid Screen"
+      },
+      {
+        "command": "orchid-commands.selection",
+        "title": "Orchid Selection"
+      },
+      {
+        "command": "orchid-commands.table",
+        "title": "Orchid Table"
+      },
+      {
+        "command": "orchid-commands.tab-menu",
+        "title": "Orchid Tab Menu"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.73.0",
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "eslint": "^8.26.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.1.0",
+    "typescript": "^4.8.4",
+    "@vscode/test-electron": "^2.2.0"
+  },
+  "dependencies": {
+    "child_process": "^1.0.2"
+  }
+}
