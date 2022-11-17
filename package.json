@@ -2,7 +2,7 @@
   "name": "orchid-commands",
   "displayName": "Orchid Commands",
   "description": "Orchid Commands for rapid development with Orchid Platform.",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "icon": "orchid.png",
   "publisher": "cryptodev369",
   "repository": {

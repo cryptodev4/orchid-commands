@@ -8,9 +8,8 @@ export default class Common {
     });
     
     protected static async validate(err: any, stdout: any, stderr: any) {
-        console.log('stdout' + stdout);
         if (err) {
-            console.error(`exec error: ${err}`);
+            console.error(`execCmd error: ${err}`);
             return;
         }
         window.showInformationMessage(`${stdout}`);

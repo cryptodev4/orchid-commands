@@ -1,3 +1,4 @@
+import * as fs from 'fs';
 import * as vscode from 'vscode';
 import Action from './commands/orchid/Action';
 import Chart from './commands/orchid/Chart';
@@ -13,13 +14,20 @@ import TabMenu from './commands/orchid/TabMenu';
 
 export async function activate(context: vscode.ExtensionContext) {
     console.log('Orchid Commands extension activated')
+
+    vscode.workspace.workspaceFolders?.map(async (workspaceFolder) => {
+        if (fs.existsSync(workspaceFolder.uri.fsPath + '/vendor/orchid/crud')) {
+            context.subscriptions.push(vscode.commands.registerCommand('orchid-commands.action', () => { Action.run() }));
+            context.subscriptions.push(vscode.commands.registerCommand('orchid-commands.resource', () => { Resource.run() }));
+        } else {
+            vscode.window.showInformationMessage('You need to install Orchid CRUD package');
+        }
+    })
     
-    context.subscriptions.push(vscode.commands.registerCommand('orchid-commands.action', () => { Action.run() }));
     context.subscriptions.push(vscode.commands.registerCommand('orchid-commands.chart', () => { Chart.run() }));
     context.subscriptions.push(vscode.commands.registerCommand('orchid-commands.filter', () => { Filter.run() }));
     context.subscriptions.push(vscode.commands.registerCommand('orchid-commands.listener', () => { Listener.run() }));
     context.subscriptions.push(vscode.commands.registerCommand('orchid-commands.presenter', () => { Presenter.run() }));
-    context.subscriptions.push(vscode.commands.registerCommand('orchid-commands.resource', () => { Resource.run() }));
     context.subscriptions.push(vscode.commands.registerCommand('orchid-commands.rows', () => { Rows.run() }));
     context.subscriptions.push(vscode.commands.registerCommand('orchid-commands.screen', () => { Screen.run() }));
     context.subscriptions.push(vscode.commands.registerCommand('orchid-commands.selection', () => { Selection.run() }));
